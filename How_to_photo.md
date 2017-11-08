@@ -46,8 +46,7 @@
 
 Данный жест воспроизвести несложно. Фотографировать так же, как на фото.
 
-![image](https://pp.userapi.com/c824410/v824410860/181bc/Jy0piSmB-co.jpg)
-
+![image](http://www.colors.life/upload/blogs/1a/8b/1a8b0c88134d43caa50ff48c8a144a2c_RSZ_690.jpeg)
 ### Фак
 
 Этот жест также сделать легко:
