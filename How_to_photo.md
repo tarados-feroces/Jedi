@@ -28,7 +28,7 @@
 Данный жест Вы можете увидеть на правой руке кунг-фу мастера. Фотографировать кулак, направив его в камеру.
 
 ![image](https://pp.userapi.com/c824410/v824410860/1810a/Fui2OoF4kr8.jpg)
-![image](http://img.dni.ru/binaries/v3_main/289389.jpg)
+![image](http://www.vladtime.ru/uploads/posts/2016-02/1455183928_fist-punch.jpg)
 
 
 ### Ладонь
