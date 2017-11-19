@@ -16,7 +16,17 @@ packages=(
 	git
 	libgtk2.0-dev
 
-libjpeg-dev libpng-dev libtiff5-dev libjasper-dev libdc1394-22-dev libeigen3-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev sphinx-common libtbb-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libopenexr-dev libgstreamer-plugins-base1.0-dev libavutil-dev libavfilter-dev libavresample-dev
+	libjpeg-dev libpng-dev libtiff5-dev libjasper-dev libdc1394-22-dev libeigen3-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev sphinx-common libtbb-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libopenexr-dev libgstreamer-plugins-base1.0-dev libavutil-dev libavfilter-dev libavresample-dev
+
+	libgstreamer0.10-0 
+	libgstreamer0.10-dev 
+	gstreamer0.10-tools 
+	gstreamer0.10-plugins-base 
+	libgstreamer-plugins-base0.10-dev 
+	gstreamer0.10-plugins-good 
+	gstreamer0.10-plugins-ugly 
+	gstreamer0.10-plugins-bad 
+	gstreamer0.10-ffmpeg
 
 	python-numpy
  	python-matplotlib
@@ -27,7 +37,7 @@ libjpeg-dev libpng-dev libtiff5-dev libjasper-dev libdc1394-22-dev libeigen3-dev
        
 	pkg-config 
 	unzip 
-	ffmpeg  
+	ffmpeg
 
 	python-dev 
 	python3-dev
@@ -49,7 +59,7 @@ libjpeg-dev libpng-dev libtiff5-dev libjasper-dev libdc1394-22-dev libeigen3-dev
 	libavformat-dev 
 	libswscale-dev
 	libxine2-dev 
-	libgstreamer0.10-dev 
+	
 	
 	libv4l-dev 
 	libtbb-dev 
@@ -65,7 +75,7 @@ libjpeg-dev libpng-dev libtiff5-dev libjasper-dev libdc1394-22-dev libeigen3-dev
 	libopencore-amrwb-dev
 
 	libjasper-dev 
-	libgstreamer-plugins-base0.10-dev
+	
 
 	libjpeg8-dev
 	libx264-dev 
