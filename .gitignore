@@ -2,10 +2,4 @@
 cmake-build-debug
 imgs/*
 
-ubuntu-xenial-16.04-cloudimg-console.log
-.vagrant
-Jedi/Makefile
-Jedi/test.cpp
-Jedi/untitled
-OCV/opencv-3.3.0
 

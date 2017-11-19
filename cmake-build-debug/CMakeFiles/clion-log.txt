@@ -1,4 +1,0 @@
-/home/anton/IDE`s/clion-2017.2.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/anton/Projects/technopark/c++/camera
--- Configuring done
--- Generating done
--- Build files have been written to: /home/anton/Projects/technopark/c++/camera/cmake-build-debug
