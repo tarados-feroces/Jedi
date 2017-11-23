@@ -9,120 +9,70 @@ white='\e[0m'
 
 
 packages=(
+		ant
 	build-essential 
 	cmake 
-	pkg-config 
-	unzip
-	git
-	libgtk2.0-dev
-
-
-	libjpeg-dev 
-	libpng-dev 
-	libtiff5-dev 
-	libjasper-dev 
-	libdc1394-22-dev 
-	libeigen3-dev 
-	libtheora-dev 
-	libvorbis-dev 
-	libxvidcore-dev 
-	libx264-dev 
-	sphinx-common 
-	libtbb-dev 
-	yasm 
-	libfaac-dev 
-	libopencore-amrnb-dev 
-	libopencore-amrwb-dev 
-	libopenexr-dev 
-	libgstreamer-plugins-base1.0-dev 
-	libavutil-dev 
-	libavfilter-dev 
-	libavresample-dev
-	libgstreamer1.0-dev 
-	libgstreamer-plugins-base1.0-dev
-
-	libavutil-dev 
-	libavfilter-dev 
-	libavresample-dev
-
-	libgstreamer0.10-0 
-	libgstreamer0.10-dev 
-	gstreamer0.10-tools 
-	gstreamer0.10-plugins-base 
-	libgstreamer-plugins-base0.10-dev 
-	gstreamer0.10-plugins-good 
-	gstreamer0.10-plugins-ugly 
-	gstreamer0.10-plugins-bad 
-	gstreamer0.10-ffmpeg
-
-
-	python-numpy
- 	python-matplotlib
-	python-pandas 
-	python-sympy
-	python-nose
-	python-scipy
-       
-	pkg-config 
-	unzip 
+	default-jdk 
 	ffmpeg
-
-	python-dev 
-	python3-dev
-	python3.5-dev 
-	python-numpy 
-	python3-numpy
-
-	libtbb2 
-	libtbb-dev
-
-	libgstreamer0.10-0 
-	libgstreamer0.10-dev 
-	gstreamer0.10-tools 
+	gfortran
+	git
+	gstreamer0.10-ffmpeg
+	gstreamer0.10-plugins-bad 
 	gstreamer0.10-plugins-base 
-	libgstreamer-plugins-base0.10-dev 
 	gstreamer0.10-plugins-good 
 	gstreamer0.10-plugins-ugly 
-	gstreamer0.10-plugins-bad 
-	gstreamer0.10-ffmpeg
-
-	libopencv-dev 
-	libgtk-3-dev 
+	gstreamer0.10-tools 
+	libatlas-base-dev 
+	libavcodec-dev 
+	libavfilter-dev 
+	libavformat-dev 
+	libavresample-dev
+	libavutil-dev 
 	libdc1394-22 
 	libdc1394-22-dev 
-	libjpeg-dev 
-	libpng12-dev 
-
-	libavcodec-dev 
-	libavformat-dev 
-	libswscale-dev
-	libxine2-dev 
-	
-	
-	libv4l-dev 
-	libtbb-dev 
+	libeigen3-dev 
 	libfaac-dev 
-	libmp3lame-dev 
-	libtheora-dev 
-
-
-	libvorbis-dev 
-	libxvidcore-dev 
-	v4l-utils 
-	libopencore-amrnb-dev 
-	libopencore-amrwb-dev
-
+	libgstreamer0.10-0 
+	libgstreamer0.10-dev 
+	libgstreamer1.0-dev 
+	libgstreamer-plugins-base0.10-dev  
+	libgstreamer-plugins-base1.0-dev 
+	libgtk2.0-dev
+	libgtk-3-dev
 	libjasper-dev 
-	
-
 	libjpeg8-dev
+	libjpeg-dev
+	libmp3lame-dev 
+	libopencore-amrnb-dev 
+	libopencv-dev 
+	libopenexr-dev
+	libpng12-dev 
+	libpng-dev 
+	libswscale-dev
+	libtbb2 
+	libtbb-dev
+	libtheora-dev 
+	libtiff5-dev 
+	libv4l-dev 
+	libvorbis-dev 
 	libx264-dev 
-	libatlas-base-dev 
-	gfortran
-
-	default-jdk 
-	ant
-
+	libxine2-dev 
+	libxvidcore-dev 
+	pkg-config 
+	python3.5-dev 
+	python3-dev
+	python3-numpy
+	python-dev 
+ 	python-matplotlib
+	python-nose
+	python-numpy
+	python-pandas 
+	python-scipy
+	python-sympy
+	sphinx-common 
+	unzip
+	v4l-utils 
+	yasm
 )
 
 
@@ -151,35 +101,47 @@ fi
 echo -e "${green} All packages should be installed${white}"
 
 flags=(
-	"CMAKE_BUILD_TYPE=RELEASE"
-	"INSTALL_C_EXAMPLES=ON"
-	"INSTALL_PYTHON_EXAMPLES=ON"
-	"BUILD_EXAMPLES=ON"
-	"WITH_QT=ON"
-	"CMAKE_INSTALL_PREFIX=/usr/local"
-	"WITH_OPENGL=ON"
-	"WITH_V4L=ON"
-	"WITH_CUDA=ON"
-	"BUILD_NEW_PYTHON_SUPPORT=ON"
+	"BUILD_TIFF=ON"
+	"WITH_CUDA=OFF"
+	"ENABLE_AVX=OFF"
+	"WITH_OPENGL=OFF"
+	"WITH_OPENCL=OFF"
+	"WITH_IPP=OFF"
 	"WITH_TBB=ON"
+	"BUILD_TBB=ON"
+	"WITH_EIGEN=OFF" 
+	"WITH_V4L=OFF"
+	"WITH_VTK=OFF"
+	"BUILD_TESTS=OFF"
+	"BUILD_PERF_TESTS=OFF"
+	"CMAKE_INSTALL_PREFIX=/usr/local"
+	"OPENCV_EXTRA_MODULES_PATH=/opencv/opencv_contrib/modules" 
 )
 
-cmake_command="cmake "
+cmake_command="sudo cmake "
 
 for flag in "${flags[@]}"
 do
 	cmake_command="${cmake_command} -D ${flag}"
 done
 
-cmake_command="${cmake_command} .."
+cmake_command="${cmake_command} /opencv/opencv/"
 
-cd /dev
+[[ ! -f /opencv ]] && make sudo opencv
+cd /opencv
+
 sudo git clone https://github.com/Itseez/opencv.git
 sudo git clone https://github.com/Itseez/opencv_contrib.git
+
 cd opencv
 sudo mkdir release
 cd release
-sudo cmake -D BUILD_TIFF=ON -D WITH_CUDA=OFF -D ENABLE_AVX=OFF -D WITH_OPENGL=OFF -D WITH_OPENCL=OFF -D WITH_IPP=OFF -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_EIGEN=OFF -D WITH_V4L=OFF -D WITH_VTK=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/dev/opencv_contrib/modules /dev/opencv/
+
+
+
+eval "$cmake_command"
+
+
 sudo make --jobs=10
 sudo make install
 sudo ldconfig
