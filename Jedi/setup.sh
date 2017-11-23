@@ -16,7 +16,29 @@ packages=(
 	git
 	libgtk2.0-dev
 
-libjpeg-dev libpng-dev libtiff5-dev libjasper-dev libdc1394-22-dev libeigen3-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev sphinx-common libtbb-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libopenexr-dev libgstreamer-plugins-base1.0-dev libavutil-dev libavfilter-dev libavresample-dev
+	libjpeg-dev 
+	libpng-dev 
+	libtiff5-dev 
+	libjasper-dev 
+	libdc1394-22-dev 
+	libeigen3-dev 
+	libtheora-dev 
+	libvorbis-dev 
+	libxvidcore-dev 
+	libx264-dev 
+	sphinx-common 
+	libtbb-dev 
+	yasm 
+	libfaac-dev 
+	libopencore-amrnb-dev 
+	libopencore-amrwb-dev 
+	libopenexr-dev 
+	libgstreamer-plugins-base1.0-dev 
+	libavutil-dev 
+	libavfilter-dev 
+	libavresample-dev
+	libgstreamer1.0-dev 
+	libgstreamer-plugins-base1.0-dev
 
 	python-numpy
  	python-matplotlib
@@ -37,6 +59,16 @@ libjpeg-dev libpng-dev libtiff5-dev libjasper-dev libdc1394-22-dev libeigen3-dev
 
 	libtbb2 
 	libtbb-dev
+
+	libgstreamer0.10-0 
+	libgstreamer0.10-dev 
+	gstreamer0.10-tools 
+	gstreamer0.10-plugins-base 
+	libgstreamer-plugins-base0.10-dev 
+	gstreamer0.10-plugins-good 
+	gstreamer0.10-plugins-ugly 
+	gstreamer0.10-plugins-bad 
+	gstreamer0.10-ffmpeg
 
 	libopencv-dev 
 	libgtk-3-dev 
@@ -107,7 +139,7 @@ flags=(
 	"INSTALL_C_EXAMPLES=ON"
 	"INSTALL_PYTHON_EXAMPLES=ON"
 	"BUILD_EXAMPLES=ON"
-	#"WITH_QT=ON"
+	"WITH_QT=ON"
 	"CMAKE_INSTALL_PREFIX=/usr/local"
 	"WITH_OPENGL=ON"
 	"WITH_V4L=ON"
