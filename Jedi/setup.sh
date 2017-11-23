@@ -101,6 +101,8 @@ fi
 echo -e "${green} All packages should be installed${white}"
 
 flags=(
+	"CMAKE_BUILD_TYPE=RELEASE"
+	"CMAKE_INSTALL_PREFIX=/usr/local"
 	"BUILD_TIFF=ON"
 	"WITH_CUDA=OFF"
 	"ENABLE_AVX=OFF"
@@ -114,7 +116,6 @@ flags=(
 	"WITH_VTK=OFF"
 	"BUILD_TESTS=OFF"
 	"BUILD_PERF_TESTS=OFF"
-	"CMAKE_INSTALL_PREFIX=/usr/local"
 	"OPENCV_EXTRA_MODULES_PATH=/opencv/opencv_contrib/modules" 
 )
 
