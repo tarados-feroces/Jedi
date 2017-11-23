@@ -16,6 +16,7 @@ packages=(
 	git
 	libgtk2.0-dev
 
+<<<<<<< HEAD
 	libjpeg-dev 
 	libpng-dev 
 	libtiff5-dev 
@@ -39,6 +40,19 @@ packages=(
 	libavresample-dev
 	libgstreamer1.0-dev 
 	libgstreamer-plugins-base1.0-dev
+=======
+	libjpeg-dev libpng-dev libtiff5-dev libjasper-dev libdc1394-22-dev libeigen3-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev sphinx-common libtbb-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libopenexr-dev libgstreamer-plugins-base1.0-dev libavutil-dev libavfilter-dev libavresample-dev
+
+	libgstreamer0.10-0 
+	libgstreamer0.10-dev 
+	gstreamer0.10-tools 
+	gstreamer0.10-plugins-base 
+	libgstreamer-plugins-base0.10-dev 
+	gstreamer0.10-plugins-good 
+	gstreamer0.10-plugins-ugly 
+	gstreamer0.10-plugins-bad 
+	gstreamer0.10-ffmpeg
+>>>>>>> 8ea0d13369faade60a6660d638b3492398d83abb
 
 	python-numpy
  	python-matplotlib
@@ -49,7 +63,7 @@ packages=(
        
 	pkg-config 
 	unzip 
-	ffmpeg  
+	ffmpeg
 
 	python-dev 
 	python3-dev
@@ -81,7 +95,7 @@ packages=(
 	libavformat-dev 
 	libswscale-dev
 	libxine2-dev 
-	libgstreamer0.10-dev 
+	
 	
 	libv4l-dev 
 	libtbb-dev 
@@ -97,7 +111,7 @@ packages=(
 	libopencore-amrwb-dev
 
 	libjasper-dev 
-	libgstreamer-plugins-base0.10-dev
+	
 
 	libjpeg8-dev
 	libx264-dev 
@@ -157,13 +171,13 @@ done
 
 cmake_command="${cmake_command} .."
 
-cd /opt
+cd /dev
 sudo git clone https://github.com/Itseez/opencv.git
 sudo git clone https://github.com/Itseez/opencv_contrib.git
 cd opencv
 sudo mkdir release
 cd release
-sudo cmake -D BUILD_TIFF=ON -D WITH_CUDA=OFF -D ENABLE_AVX=OFF -D WITH_OPENGL=OFF -D WITH_OPENCL=OFF -D WITH_IPP=OFF -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_EIGEN=OFF -D WITH_V4L=OFF -D WITH_VTK=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules /opt/opencv/
+sudo cmake -D BUILD_TIFF=ON -D WITH_CUDA=OFF -D ENABLE_AVX=OFF -D WITH_OPENGL=OFF -D WITH_OPENCL=OFF -D WITH_IPP=OFF -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_EIGEN=OFF -D WITH_V4L=OFF -D WITH_VTK=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/dev/opencv_contrib/modules /dev/opencv/
 sudo make --jobs=10
 sudo make install
 sudo ldconfig
