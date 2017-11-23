@@ -16,7 +16,7 @@ packages=(
 	git
 	libgtk2.0-dev
 
-<<<<<<< HEAD
+
 	libjpeg-dev 
 	libpng-dev 
 	libtiff5-dev 
