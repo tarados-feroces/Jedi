@@ -40,8 +40,10 @@ packages=(
 	libavresample-dev
 	libgstreamer1.0-dev 
 	libgstreamer-plugins-base1.0-dev
-=======
-	libjpeg-dev libpng-dev libtiff5-dev libjasper-dev libdc1394-22-dev libeigen3-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev sphinx-common libtbb-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libopenexr-dev libgstreamer-plugins-base1.0-dev libavutil-dev libavfilter-dev libavresample-dev
+
+	libavutil-dev 
+	libavfilter-dev 
+	libavresample-dev
 
 	libgstreamer0.10-0 
 	libgstreamer0.10-dev 
@@ -52,7 +54,7 @@ packages=(
 	gstreamer0.10-plugins-ugly 
 	gstreamer0.10-plugins-bad 
 	gstreamer0.10-ffmpeg
->>>>>>> 8ea0d13369faade60a6660d638b3492398d83abb
+
 
 	python-numpy
  	python-matplotlib
