@@ -127,13 +127,13 @@ done
 
 cmake_command="${cmake_command} /opencv/opencv/"
 
-[[ ! -d /opencv ]] && sudo mkdir opencv
+[[ ! -d /opencv ]] && sudo mkdir /opencv
 cd /opencv
 
 sudo git clone https://github.com/Itseez/opencv.git
 sudo git clone https://github.com/Itseez/opencv_contrib.git
 
-cd opencv
+cd /opencv
 sudo mkdir release
 cd release
 
