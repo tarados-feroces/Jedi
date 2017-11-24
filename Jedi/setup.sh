@@ -76,26 +76,25 @@ packages=(
 )
 
 
-report="Report.log"
-
-
- sudo apt-get -y update > $report
- sudo apt-get -y upgrade >> $report 
 
 if [[ "$1" = "--full" ]]; then
-for pckg in ${packages[@]}
-do
-	echo "installing package $pckg"
-	echo "installing package $pckg" >> $report
+	
+	report="Report.log"
+	sudo apt-get -y update > $report
+    sudo apt-get -y upgrade >> $report 
 
-	sudo apt-get install -y $pckg >> $report 
+	for pckg in ${packages[@]}
+	do
+		echo "installing package $pckg"
+		echo "installing package $pckg" >> $report
 
-	echo "" >> $report 
-	echo "" >> $report 
-	echo "" >> $report 
+		sudo apt-get install -y $pckg >> $report 
 
-done
+		echo "" >> $report 
+		echo "" >> $report 
+		echo "" >> $report 
 
+	done
 fi
 
 echo -e "${green} All packages should be installed${white}"
@@ -128,7 +127,7 @@ done
 
 cmake_command="${cmake_command} /opencv/opencv/"
 
-[[ ! -f /opencv ]] && make sudo opencv
+[[ ! -d /opencv ]] && make sudo opencv
 cd /opencv
 
 sudo git clone https://github.com/Itseez/opencv.git
@@ -138,7 +137,7 @@ cd opencv
 sudo mkdir release
 cd release
 
-
+echo "CMAKE command : $cmake_command"
 
 eval "$cmake_command"
 
