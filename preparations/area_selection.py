@@ -133,6 +133,11 @@ class ExampleApp(tk.Tk):
 
     def next(self, event):
         self.rect = None
+        
+        print self.start_x
+        print self.end_x
+        print self.f(self.start_x)
+        
         self.report_file << "{name} 1 {x} {y} {w} {h}".format(
             name=self.photos_list[self.current_index_photo],
             x=self.f(min(self.start_x, self.end_x)),
