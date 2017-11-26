@@ -90,15 +90,15 @@ class ExampleApp(tk.Tk):
         ratio = float(im_width) / float(im_height)
 
         if ratio > self.ratio:
-            self.coef = float(im_width) / self.width
+            self.coef = float(im_width) / float(self.width)
             size = (self.width, int(floor(im_height / self.coef)))
 
         if ratio < self.ratio:
-            self.coef = float(im_height) / self.height
+            self.coef = float(im_height) / float(self.height)
             size = (int(floor(im_width / self.coef)), self.height)
 
         if ratio == self.ratio:
-            self.coef = float(im_width / self.width)
+            self.coef = float(im_width) / float(self.width)
             size = (self.width, self.height)
 
         print "coef is {}".format(self.coef)
