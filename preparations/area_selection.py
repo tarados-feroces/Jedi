@@ -62,6 +62,7 @@ class ExampleApp(tk.Tk):
         print os.listdir(path_to_dir)
 
         self.photos_list = [os.path.join(self.dir, name) for name in os.listdir(self.dir)]
+        self.photos_list = sorted(self.photos_list)
         self.report_file = ofstream(filename, 'w')
 
         self.canvas = tk.Canvas(self, width=self.width, height=self.height, cursor="cross", bg="lightblue")
