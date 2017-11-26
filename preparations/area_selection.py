@@ -59,10 +59,11 @@ class ExampleApp(tk.Tk):
 
         self.dir = path_to_dir
         print path_to_dir
-        print os.listdir(path_to_dir)
 
         self.photos_list = [os.path.join(self.dir, name) for name in os.listdir(self.dir)]
         self.photos_list = sorted(self.photos_list)
+        print self.photos_list
+
         self.report_file = ofstream(filename, 'w')
 
         self.canvas = tk.Canvas(self, width=self.width, height=self.height, cursor="cross", bg="lightblue")
@@ -130,7 +131,7 @@ class ExampleApp(tk.Tk):
         self.end_x, self.end_y = (event.x, event.y)
 
     def f(self, x):
-    	return int(self.coef*float(x))
+    	return int(float(x) * float(self.coef))
 
     def next(self, event):
         self.rect = None
