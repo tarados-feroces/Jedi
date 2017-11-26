@@ -4,3 +4,5 @@ Jedi/Makefile
 Jedi/test.cpp
 Jedi/untitled
 OCV/opencv-3.3.0
+datasets
+datasets/*
