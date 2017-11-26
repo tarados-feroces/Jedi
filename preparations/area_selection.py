@@ -108,6 +108,7 @@ class ExampleApp(tk.Tk):
         self.X_line = self.canvas.create_line(0,0,0,0,fill='red',width=2,dash=(5,3), tags='x-line')
         self.Y_line = self.canvas.create_line(0,0,0,0,fill='red',width=2,dash=(5,3), tags='y-line')
 
+
     def on_button_press(self, event):
         # save mouse drag start position
         self.start_x = event.x
@@ -131,14 +132,16 @@ class ExampleApp(tk.Tk):
         self.end_x, self.end_y = (event.x, event.y)
 
     def f(self, x):
+    	print x
+    	print self.coef
+    	print float(x) * float(self.coef)
+    	print int(float(x) * float(self.coef))
+    	print '--------------------'
     	return int(float(x) * float(self.coef))
+
 
     def next(self, event):
         self.rect = None
-        
-        print self.start_x
-        print self.end_x
-        print self.f(self.start_x)
         
         self.report_file << "{name} 1 {x} {y} {w} {h}".format(
             name=self.photos_list[self.current_index_photo],
@@ -159,6 +162,8 @@ class ExampleApp(tk.Tk):
 if __name__ == "__main__":
 
     path_to_photos = fix_path(sys.argv[1])
+
+    #from_file = fix_path(sys.argv[2])
 
     report_file_name = fix_path(sys.argv[2])
 
