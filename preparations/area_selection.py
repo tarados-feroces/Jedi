@@ -101,6 +101,8 @@ class ExampleApp(tk.Tk):
             self.coef = float(im_width / self.width)
             size = (self.width, self.height)
 
+        print "coef is {}".format(self.coef)
+
         self.resized = self.image.resize(size, Image.ANTIALIAS)
         self.tk_image = ImageTk.PhotoImage(self.resized)
 
@@ -132,11 +134,6 @@ class ExampleApp(tk.Tk):
         self.end_x, self.end_y = (event.x, event.y)
 
     def f(self, x):
-    	print x
-    	print self.coef
-    	print float(x) * float(self.coef)
-    	print int(float(x) * float(self.coef))
-    	print '--------------------'
     	return int(float(x) * float(self.coef))
 
 
