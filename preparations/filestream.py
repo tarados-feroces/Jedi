@@ -33,10 +33,12 @@ class FileStream(object):
         return self
 
     def as_list(self):
+        fix = lambda line: line.replace('\n', '')
         str_list = [""]
+
         if self.name is not None:
-            fix = lambda line: line.replace('\n', '')
             str_list = [fix(string) for string in self.file]
+            
         return str_list
 
     def as_line(self, separator=''):

@@ -45,7 +45,7 @@ class ExampleApp(tk.Tk):
     end_x = None
     end_y = None
 
-    def __init__(self, path_to_dir, filename):
+    def __init__(self, filenames_file, report_file):
         tk.Tk.__init__(self)
 
         size = (self.winfo_screenwidth() * 0.8, self.winfo_screenheight() * 0.8)
@@ -57,14 +57,14 @@ class ExampleApp(tk.Tk):
 
         self.title('Object selecter')
 
-        self.dir = path_to_dir
-        print path_to_dir
+        self.filenames_file = filenames_file
+        self.filenames = ofstream(filenames_file).as_list()
+        self.report_file = ofstream(report_file, 'a')
 
-        self.photos_list = [os.path.join(self.dir, name) for name in os.listdir(self.dir)]
-        self.photos_list = sorted(self.photos_list)
-        print self.photos_list
+        self.filenames = sorted(self.filenames)
 
-        self.report_file = ofstream(filename, 'w')
+        print self.filenames[0:3]
+
 
         self.canvas = tk.Canvas(self, width=self.width, height=self.height, cursor="cross", bg="lightblue")
         self.canvas.pack(side="top", fill="both", expand=True)
@@ -74,7 +74,8 @@ class ExampleApp(tk.Tk):
         self.canvas.bind("<Motion>", self.on_move)
         self.canvas.bind("<ButtonRelease-1>", self.on_button_release)
 
-        self.bind("<Tab>", self.next)
+        self.bind("<Tab>", self.exit)
+        self.bind("<space>", self.next)
 
         self.draw_image()
 
@@ -84,7 +85,9 @@ class ExampleApp(tk.Tk):
     	self.canvas.delete('x-line')
     	self.canvas.delete('rect')
 
-        self.image = Image.open(self.photos_list[self.current_index_photo])
+    	if not os.path.isfile(self.filenames[0]):
+    		self.filenames = self.filenames[1:]
+        self.image = Image.open(self.filenames[0])
 
         im_width, im_height = self.image.size
         ratio = float(im_width) / float(im_height)
@@ -141,28 +144,36 @@ class ExampleApp(tk.Tk):
         self.rect = None
         
         self.report_file << "{name} 1 {x} {y} {w} {h}".format(
-            name=self.photos_list[self.current_index_photo],
+            name=self.filenames[0],
             x=self.f(min(self.start_x, self.end_x)),
             y=self.f(min(self.start_y, self.end_y)),
             w=self.f(abs(self.end_x-self.start_x)),
             h=self.f(abs(self.end_y-self.start_y))
         ) << endl
 
-        self.current_index_photo += 1
-        if self.current_index_photo >= len(self.photos_list):
+        self.filenames = self.filenames[1:]
+
+        if not self.filenames:
             self.report_file.close()
             self.destroy()
         else:
         	self.draw_image()
 
+    def exit(self, event):
+    	self.report_file.close()
+
+    	file = ofstream(self.filenames_file, 'w')
+    	file << self.filenames
+    	file.close()
+    	self.destroy()
+
+
 
 if __name__ == "__main__":
 
-    path_to_photos = fix_path(sys.argv[1])
+    filenames_file = fix_path(sys.argv[1])
 
-    #from_file = fix_path(sys.argv[2])
+    report = fix_path(sys.argv[2])
 
-    report_file_name = fix_path(sys.argv[2])
-
-    app = ExampleApp(path_to_photos, report_file_name)
+    app = ExampleApp(filenames_file, report)
     app.mainloop()
