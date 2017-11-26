@@ -129,7 +129,7 @@ class ExampleApp(tk.Tk):
         self.end_x, self.end_y = (event.x, event.y)
 
     def f(self, x):
-    	return int(self.coef*x)
+    	return int(self.coef*float(x))
 
     def next(self, event):
         self.rect = None
